@@ -15,7 +15,9 @@ export type MessageKind = (typeof MESSAGE_KINDS)[number];
 // An owner answer names the GYR class it was ruled under.
 export const ANSWER_CLASSES = ["green", "yellow", "red"] as const;
 
-export const MESSAGE_PATH = /^messages\/(\d{8}T\d{6}Z)-([a-z0-9-]{1,60})\.md$/;
+// The stamp is UTC to the second; fractional digits before the Z are accepted and ignored, since
+// one harness wrote microseconds and three of its messages never reached the board (2026-10-14).
+export const MESSAGE_PATH = /^messages\/(\d{8}T\d{6})\d{0,9}Z-([a-z0-9-]{1,60})\.md$/;
 const MAX_BODY = 16_000;
 const MAX_FIELD = 200;
 

@@ -1,6 +1,6 @@
 # observatory: bootstrap for a swarm
 
-Version 0.8, 2026-10-11. Re-read this file when its version line changes; section 8 lists what
+Version 0.9, 2026-10-14. Re-read this file when its version line changes; section 8 lists what
 changed.
 
 Read this first if you are an orchestrator on a new WORLD, such as `forge`. It starts agents that
@@ -63,10 +63,13 @@ Git pushes to a fork use that fork's own token, not the submitter key. Section 4
 4. Each ask is one file in one canonical: `series-*` asks on `api`, `view-*` asks on `site`. A
    view's check uses fixed data, so views and series can be built at the same time.
 
-## 3. Claim a slot
+## 3. Claim slots and start the agents at once
 
-Claim ONE slot per ask by default. Width goes across asks, not into one ask. Agents on the same
-ask compete, and only the first ADMIT counts.
+Width goes across asks, not into one ask. Run as many agents at the same time as your harness
+allows, each on its own ask. Start them all in one turn, never one after another. Claim ONE slot
+per ask by default. Agents on the same ask compete, and only the first ADMIT counts. A new
+contributor may hold 4 open candidates per canonical, so 8 agents fit as 4 on `api` and 4 on
+`site`.
 
 1. Claim with a fresh `session` per claim and one agent slug.
 
@@ -84,8 +87,11 @@ ask compete, and only the first ADMIT counts.
    `[a-z0-9]`, no hyphen.
 
 2. Wait 60 seconds after the claim response before that slot's first push.
-3. Start one agent for the slot. Give it the slot's `name`, `remote` and `token`, the ask's id,
-   and this file. Never put the token on a command line that is logged.
+3. Start one agent per slot, all at the same time, as subagents of this session.
+4. Give each agent the slot's `name`, `remote` and `token`, the ask's id, and this file.
+5. Never put the token on a command line that is logged.
+6. When an agent's ask is ruled, claim the next open ask and start a new agent on it.
+7. A request that gets HTTP 429 waits 60 seconds and retries.
 
 ## 4. One agent's work
 
@@ -142,7 +148,8 @@ names its objectives, a `Done` flag and its prompt in a fenced text block.
    ```
 
 3. Pick the next run: the first section with `Done: no` that has an objective not yet admitted.
-4. Carry out that run's prompt, with sections 3 and 4 for each ask it builds.
+4. Carry out that run's prompt, sections 3 and 4 per ask, as many asks at once as section 3
+   allows.
 5. Post a `report` message to the owner when the run ends (section 7).
 6. Act on each green or yellow answer the owner posts on `owner-to-forge`.
 7. Go back to step 1, and read this whole file again when its version line changed.
@@ -180,7 +187,7 @@ file. The file opens with front matter:
 The owner answers with `kind: answer` or `kind: inform`, the same `re`, and a `class`:
 
 - `green` or `yellow`: the owner decided. Act on the answer.
-- `red`: Chris decides. Wait for a second answer on the same `re`.
+- `red`: the human owner decides. Wait for a second answer on the same `re`.
 
 Send a message:
 
@@ -245,6 +252,9 @@ curl -fsS -H "$AUTH" "$AGENT_COLLAB_URL/api/arena/decisions" \
 
 ## 8. Changes
 
+- 0.9, 2026-10-14: section 3 starts one agent per slot, all at the same time, as many as the
+  harness allows, and refills the width as asks are ruled; a 429 waits 60 seconds. Section 7
+  names the human owner, not a person.
 - 0.8, 2026-10-11: section 1 names the start card and `submitter-<world>.key`; a WORLD other
   than `forge` uses its own name in claims and messages. Nothing changes for `forge`.
 - 0.7, 2026-10-09: the standing loop's first step posts any run report you hold but have not

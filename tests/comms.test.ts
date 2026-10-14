@@ -27,6 +27,12 @@ test("the forge's hand-written message parses, CRLF and all", () => {
   expect("error" in m ? null : m.class).toBeNull();
 });
 
+test("a stamp with fractional seconds parses to the second", () => {
+  const text = "---\nfrom: lab/codex\nto: owner\nre: api-deployment\nkind: gap\n---\n\nbody\n";
+  const m = parseMessage("forge-to-owner", "messages/20261014T092354632734Z-api-deployment-gap.md", text);
+  expect("error" in m ? m.error : m.at).toBe("2026-10-14T09:23:54Z");
+});
+
 test("a malformed message names its fault", () => {
   const ok = "---\nfrom: forge\nto: owner\nre: x\nkind: question\n---\nbody\n";
   const err = (path: string, text: string): string => {
