@@ -1,0 +1,11 @@
+.env*
+*.env
+.dev.vars*
+.wrangler/
+node_modules/
+dist/
+.workdirs/
+.agent-collab/
+worker-configuration.d.ts
+docs/internal/
+docs/JTBD.md

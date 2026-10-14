@@ -1,0 +1,72 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "agent-collab-control",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-05",
+  // account_id is read from the CLOUDFLARE_ACCOUNT_ID environment variable; never commit it.
+  "workers_dev": true,
+  "artifacts": [
+    {
+      "binding": "ARTIFACTS",
+      "namespace": "agent-collab-arena"
+    },
+    // The comms channel (ISSUE-00026): forge-to-owner and owner-to-forge, apart from the arena.
+    {
+      "binding": "COMMS",
+      "namespace": "agent-collab-comms"
+    }
+  ],
+  // "1" makes the telemetry board and read routes public; anything else requires a key.
+  "vars": { "PUBLIC_BOARD": "0" },
+  // The observatory api, deployed from the api canonical by the admission authority.
+  "services": [{ "binding": "API", "service": "agent-collab-api" }],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "COORD",
+        "class_name": "Coordinator"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["Coordinator"]
+    }
+  ],
+  "queues": {
+    "consumers": [
+      {
+        "queue": "agent-collab-events",
+        "max_batch_size": 10,
+        "max_batch_timeout": 1
+      }
+    ]
+  },
+  "observability": {
+    "enabled": true
+  },
+  // A second installation in the same account (ISSUE-00035): every resource name differs, so it
+  // never touches the first. Deploy with `wrangler deploy --env test`. It has no observatory api
+  // binding: the /obs routes answer only where an api Worker is deployed for it.
+  "env": {
+    "test": {
+      "name": "agent-collab-test-control",
+      "artifacts": [
+        { "binding": "ARTIFACTS", "namespace": "agent-collab-test-arena" },
+        { "binding": "COMMS", "namespace": "agent-collab-test-comms" }
+      ],
+      "vars": {
+        "PUBLIC_BOARD": "0",
+        "ARENA_NAMESPACE": "agent-collab-test-arena",
+        "COMMS_NAMESPACE": "agent-collab-test-comms",
+        "EVENTS_QUEUE": "agent-collab-test-events",
+        "RESOURCE_PREFIX": "agent-collab-test"
+      },
+      "durable_objects": { "bindings": [{ "name": "COORD", "class_name": "Coordinator" }] },
+      "queues": {
+        "consumers": [{ "queue": "agent-collab-test-events", "max_batch_size": 10, "max_batch_timeout": 1 }]
+      }
+    }
+  }
+}

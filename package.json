@@ -1,0 +1,21 @@
+{
+  "name": "agent-collab",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261006.1",
+    "@types/bun": "latest",
+    "wrangler": "^4.147.0"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "scripts": {
+    "test": "bun test ./tests",
+    "types": "wrangler types",
+    "typecheck": "wrangler types && tsc --noEmit -p .",
+    "deploy": "wrangler deploy"
+  }
+}

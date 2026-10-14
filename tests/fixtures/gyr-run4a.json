@@ -1,0 +1,912 @@
+{
+  "context_commit": "bf18f03",
+  "source": "board decisions, 2026-10-08 run 4a; expected class and choice from the owner's GYR rulings",
+  "fixtures": [
+    {
+      "id": 1,
+      "kind": "reserved_path",
+      "subject": "cand--series-decisions--commons--script--r1--644f",
+      "record": {
+        "decision_requested": {
+          "summary": "Approve admitting series-decisions slot r1 although it changes wrangler.jsonc"
+        },
+        "why_now": {
+          "summary": "changes outside src/series/series-decisions.ts: wrangler.jsonc",
+          "red_criteria": [
+            "reserved"
+          ]
+        },
+        "evidence": {
+          "summary": "One path changed outside src/series/series-decisions.ts: wrangler.jsonc",
+          "detail": "Candidate cand--series-decisions--commons--script--r1--644f. Verdict reason: scope: changes outside src/series/series-decisions.ts: wrangler.jsonc.",
+          "refs": [
+            "wrangler.jsonc"
+          ]
+        },
+        "assumptions": {
+          "summary": "The extra change is deliberate and belongs to this ask."
+        },
+        "alternatives": {
+          "summary": "Admit with a scope waiver for the named paths, or keep the refusal.",
+          "options": [
+            {
+              "name": "waive",
+              "summary": "Admit with a scope waiver for the named paths; the public check and the hidden check still run."
+            },
+            {
+              "name": "refuse",
+              "summary": "Keep the refusal."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "Refused; the ask stays open for another candidate."
+        },
+        "recommendation": {
+          "summary": "Keep the refusal: a candidate changes one file, and the contract reserves the rest.",
+          "choice": "refuse"
+        },
+        "blast_radius": {
+          "summary": "A waived path reaches the canonical on ADMIT: wrangler.jsonc",
+          "level": "high"
+        },
+        "cost_tradeoffs": {
+          "summary": "A waiver admits files the contract reserves; a refusal costs the candidate a resubmission."
+        },
+        "uncertainty": {
+          "summary": "No material uncertainty identified."
+        },
+        "reversibility": {
+          "summary": "Nothing is merged; either choice can still be changed.",
+          "reversal_cost": "low"
+        },
+        "time_control": {
+          "summary": "No deadline; the ask stays open meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": null,
+      "expected": {
+        "cls": "red",
+        "choice": "refuse",
+        "why": "a candidate changed wrangler.jsonc, a platform file only the owner waives"
+      }
+    },
+    {
+      "id": 2,
+      "kind": "reserved_path",
+      "subject": "cand--series-decisions--commons--probe--r1--1fd9",
+      "record": {
+        "decision_requested": {
+          "summary": "Approve admitting series-decisions slot r1 although it changes wrangler.jsonc"
+        },
+        "why_now": {
+          "summary": "changes outside src/series/series-decisions.ts: wrangler.jsonc",
+          "red_criteria": [
+            "reserved"
+          ]
+        },
+        "evidence": {
+          "summary": "One path changed outside src/series/series-decisions.ts: wrangler.jsonc",
+          "detail": "Candidate cand--series-decisions--commons--probe--r1--1fd9. Verdict reason: scope: changes outside src/series/series-decisions.ts: wrangler.jsonc.",
+          "refs": [
+            "wrangler.jsonc"
+          ]
+        },
+        "assumptions": {
+          "summary": "The extra change is deliberate and belongs to this ask."
+        },
+        "alternatives": {
+          "summary": "Admit with a scope waiver for the named paths, or keep the refusal.",
+          "options": [
+            {
+              "name": "waive",
+              "summary": "Admit with a scope waiver for the named paths; the public check and the hidden check still run."
+            },
+            {
+              "name": "refuse",
+              "summary": "Keep the refusal."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "Refused; the ask stays open for another candidate."
+        },
+        "recommendation": {
+          "summary": "Keep the refusal: a candidate changes one file, and the contract reserves the rest.",
+          "choice": "refuse"
+        },
+        "blast_radius": {
+          "summary": "A waived path reaches the canonical on ADMIT: wrangler.jsonc",
+          "level": "high"
+        },
+        "cost_tradeoffs": {
+          "summary": "A waiver admits files the contract reserves; a refusal costs the candidate a resubmission."
+        },
+        "uncertainty": {
+          "summary": "No material uncertainty identified."
+        },
+        "reversibility": {
+          "summary": "Nothing is merged; either choice can still be changed.",
+          "reversal_cost": "low"
+        },
+        "time_control": {
+          "summary": "No deadline; the ask stays open meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": null,
+      "expected": {
+        "cls": "red",
+        "choice": "refuse",
+        "why": "a candidate changed wrangler.jsonc, a platform file only the owner waives"
+      }
+    },
+    {
+      "id": 4,
+      "kind": "amendment",
+      "subject": "cand--amend-fork-membership--forge--codex--w1--12667db890aa",
+      "record": {
+        "decision_requested": {
+          "summary": "Admit the amendment amend-fork-membership to SPEC.md?"
+        },
+        "why_now": {
+          "summary": "Every check passed. The amendment changes the spec text that every later run reads.",
+          "red_criteria": [
+            "product_tradeoff"
+          ]
+        },
+        "evidence": {
+          "summary": "The amendment adds 6 lines and removes none. It cites ADMIT on series-now at 2026-10-09T03:19:08.913Z. The replay result: cites a recorded ADMIT; nothing to replay.",
+          "detail": "For series-now, only distinct candidate subjects with a fork event in the supplied input\ncount toward an actor's or the authority's `open` and `owed`; a parsed name alone is insufficient.\nFor series-runs, a candidate also needs a fork event and a matching claim burst to belong to a\nrun. Forkless pushes and verdicts do not add candidates, verdict counts, timing samples, or\nextend a run's `ended`. Claim and slot counts still come from the claims themselves.\n\n\nThe submitter's reason: Do candidates without fork events count toward roster open/owed and run membership? Answered in SPEC.md section 2. Ingestion using the exact admitted implementation and its recorded ADMIT. Adds 6 lines; changes no admitted ask behavior.",
+          "refs": [
+            "ruling key: cand--amend-fork-membership--forge--codex--w1--12667db890aa 8957461c330697ca7cbdcf94f357bc96a5c937ba",
+            "cites: ADMIT on series-now at 2026-10-09T03:19:08.913Z",
+            "For series-now, only distinct candidate subjects with a fork event in the supplied input",
+            "count toward an actor's or the authority's `open` and `owed`; a parsed name alone is insufficient.",
+            "For series-runs, a candidate also needs a fork event and a matching claim burst to belong to a",
+            "run. Forkless pushes and verdicts do not add candidates, verdict counts, timing samples, or",
+            "extend a run's `ended`. Claim and slot counts still come from the claims themselves."
+          ]
+        },
+        "assumptions": {
+          "summary": "The added text states what the arena already does."
+        },
+        "alternatives": {
+          "summary": "Admit the amendment, or refuse the amendment.",
+          "options": [
+            {
+              "name": "admit",
+              "summary": "Admit the amendment. Spec merges the text, and every later run reads it."
+            },
+            {
+              "name": "refuse",
+              "summary": "Refuse the amendment. The question stays open for another amendment."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "The candidate waits without a ruling, and the spec stays unchanged."
+        },
+        "recommendation": {
+          "summary": "Admit the amendment. It only adds lines, and the replay measured its cited failure.",
+          "choice": "admit"
+        },
+        "blast_radius": {
+          "summary": "The spec text changes for every later candidate. No code changes.",
+          "level": "medium"
+        },
+        "cost_tradeoffs": {
+          "summary": "An admit fixes the text for every later run. A refusal leaves the question open."
+        },
+        "uncertainty": {
+          "summary": "Only a human read confirms that the text matches the arena's intent."
+        },
+        "reversibility": {
+          "summary": "An admitted amendment stays in the spec history. A correction needs a new publish.",
+          "reversal_cost": "medium"
+        },
+        "time_control": {
+          "summary": "No deadline applies. The candidate waits meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": {
+        "verdict": "ADMIT",
+        "objective": "series-now",
+        "canonical": "api"
+      },
+      "expected": {
+        "cls": "green",
+        "choice": "refuse",
+        "why": "Reclassified GREEN under GYR (Chris, 23:25 PDT), not red. Refused: it restates SPEC 0.2.1 section 2, a candidate exists from its fork event."
+      }
+    },
+    {
+      "id": 5,
+      "kind": "amendment",
+      "subject": "cand--amend-orphan-verdict--forge--codex--w1--9342476fac27",
+      "record": {
+        "decision_requested": {
+          "summary": "Admit the amendment amend-orphan-verdict to SPEC.md?"
+        },
+        "why_now": {
+          "summary": "Every check passed. The amendment changes the spec text that every later run reads.",
+          "red_criteria": [
+            "product_tradeoff"
+          ]
+        },
+        "evidence": {
+          "summary": "The amendment adds 6 lines and removes none. It cites ADMIT on series-now at 2026-10-09T03:19:08.913Z. The replay result: cites a recorded ADMIT; nothing to replay.",
+          "detail": "In series-now, a verdict always updates the authority's latest activity. It updates the\ncandidate owner's latest activity only when that candidate has a fork event somewhere in the\nsupplied input. Without that fork, a verdict neither creates an owner row nor updates an\nexisting owner row. A candidate main or submitter-notes push can still create or update its\nowner's activity without a fork, but contributes no candidate to `open` or `owed`.\n\n\nThe submitter's reason: Should an orphan verdict create or update an agent row? Answered in SPEC.md section 2. Ingestion using the exact admitted implementation and its recorded ADMIT. Adds 6 lines; changes no admitted ask behavior.",
+          "refs": [
+            "ruling key: cand--amend-orphan-verdict--forge--codex--w1--9342476fac27 69ccf862765c9aeddfed51b6fcd8bb2244d86105",
+            "cites: ADMIT on series-now at 2026-10-09T03:19:08.913Z",
+            "In series-now, a verdict always updates the authority's latest activity. It updates the",
+            "candidate owner's latest activity only when that candidate has a fork event somewhere in the",
+            "supplied input. Without that fork, a verdict neither creates an owner row nor updates an",
+            "existing owner row. A candidate main or submitter-notes push can still create or update its",
+            "owner's activity without a fork, but contributes no candidate to `open` or `owed`."
+          ]
+        },
+        "assumptions": {
+          "summary": "The added text states what the arena already does."
+        },
+        "alternatives": {
+          "summary": "Admit the amendment, or refuse the amendment.",
+          "options": [
+            {
+              "name": "admit",
+              "summary": "Admit the amendment. Spec merges the text, and every later run reads it."
+            },
+            {
+              "name": "refuse",
+              "summary": "Refuse the amendment. The question stays open for another amendment."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "The candidate waits without a ruling, and the spec stays unchanged."
+        },
+        "recommendation": {
+          "summary": "Admit the amendment. It only adds lines, and the replay measured its cited failure.",
+          "choice": "admit"
+        },
+        "blast_radius": {
+          "summary": "The spec text changes for every later candidate. No code changes.",
+          "level": "medium"
+        },
+        "cost_tradeoffs": {
+          "summary": "An admit fixes the text for every later run. A refusal leaves the question open."
+        },
+        "uncertainty": {
+          "summary": "Only a human read confirms that the text matches the arena's intent."
+        },
+        "reversibility": {
+          "summary": "An admitted amendment stays in the spec history. A correction needs a new publish.",
+          "reversal_cost": "medium"
+        },
+        "time_control": {
+          "summary": "No deadline applies. The candidate waits meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": {
+        "verdict": "ADMIT",
+        "objective": "series-now",
+        "canonical": "api"
+      },
+      "expected": {
+        "cls": "yellow",
+        "choice": "refuse",
+        "why": "Reclassified YELLOW under GYR (Chris, 23:25 PDT), not red. Refused: the authority's series-now reference updates the agent row on every verdict, fork or not; the text says it does not."
+      }
+    },
+    {
+      "id": 6,
+      "kind": "amendment",
+      "subject": "cand--amend-verdict-ties--forge--codex--w1--c5bb9ecd6ee8",
+      "record": {
+        "decision_requested": {
+          "summary": "Admit the amendment amend-verdict-ties to SPEC.md?"
+        },
+        "why_now": {
+          "summary": "Every check passed. The amendment changes the spec text that every later run reads.",
+          "red_criteria": [
+            "product_tradeoff"
+          ]
+        },
+        "evidence": {
+          "summary": "The amendment adds 6 lines and removes none. It cites ADMIT on series-runs at 2026-10-09T03:15:31.259Z. The replay result: cites a recorded ADMIT; nothing to replay.",
+          "detail": "For series-now and series-runs, the latest verdict of one candidate is the verdict with\nthe greatest `at`. If that candidate has multiple verdicts at the same greatest time, the\nlast one in the supplied event list wins. There is no verdict-name precedence for this tie.\nThis determines latest-verdict counts and states; it does not change series-feed's ordering\nbetween event kinds or subjects.\n\n\nThe submitter's reason: Which latest verdict wins when timestamps tie? Answered in SPEC.md section 2. Ingestion using the exact admitted implementation and its recorded ADMIT. Adds 6 lines; changes no admitted ask behavior.",
+          "refs": [
+            "ruling key: cand--amend-verdict-ties--forge--codex--w1--c5bb9ecd6ee8 34614e0471715458eb4437d1030a29aa2f6d5248",
+            "cites: ADMIT on series-runs at 2026-10-09T03:15:31.259Z",
+            "For series-now and series-runs, the latest verdict of one candidate is the verdict with",
+            "the greatest `at`. If that candidate has multiple verdicts at the same greatest time, the",
+            "last one in the supplied event list wins. There is no verdict-name precedence for this tie.",
+            "This determines latest-verdict counts and states; it does not change series-feed's ordering",
+            "between event kinds or subjects."
+          ]
+        },
+        "assumptions": {
+          "summary": "The added text states what the arena already does."
+        },
+        "alternatives": {
+          "summary": "Admit the amendment, or refuse the amendment.",
+          "options": [
+            {
+              "name": "admit",
+              "summary": "Admit the amendment. Spec merges the text, and every later run reads it."
+            },
+            {
+              "name": "refuse",
+              "summary": "Refuse the amendment. The question stays open for another amendment."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "The candidate waits without a ruling, and the spec stays unchanged."
+        },
+        "recommendation": {
+          "summary": "Admit the amendment. It only adds lines, and the replay measured its cited failure.",
+          "choice": "admit"
+        },
+        "blast_radius": {
+          "summary": "The spec text changes for every later candidate. No code changes.",
+          "level": "medium"
+        },
+        "cost_tradeoffs": {
+          "summary": "An admit fixes the text for every later run. A refusal leaves the question open."
+        },
+        "uncertainty": {
+          "summary": "Only a human read confirms that the text matches the arena's intent."
+        },
+        "reversibility": {
+          "summary": "An admitted amendment stays in the spec history. A correction needs a new publish.",
+          "reversal_cost": "medium"
+        },
+        "time_control": {
+          "summary": "No deadline applies. The candidate waits meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": {
+        "verdict": "ADMIT",
+        "objective": "series-runs",
+        "canonical": "api"
+      },
+      "expected": {
+        "cls": "yellow",
+        "choice": "admit",
+        "why": "Reclassified YELLOW under GYR (Chris, 23:25 PDT), not red. Admitted: it matches the reference sort (time, kind, subject, then input order). Yellow: it cites an ADMIT, so nothing was replayed."
+      }
+    },
+    {
+      "id": 7,
+      "kind": "amendment",
+      "subject": "cand--amend-run-median--forge--codex--w1--bdcda700ce4d",
+      "record": {
+        "decision_requested": {
+          "summary": "Admit the amendment amend-run-median to SPEC.md?"
+        },
+        "why_now": {
+          "summary": "Every check passed. The amendment changes the spec text that every later run reads.",
+          "red_criteria": [
+            "product_tradeoff"
+          ]
+        },
+        "evidence": {
+          "summary": "The amendment adds 7 lines and removes none. It cites ADMIT on series-runs at 2026-10-09T03:15:31.259Z. The replay result: cites a recorded ADMIT; nothing to replay.",
+          "detail": "The run median includes only candidates whose latest verdict is ADMIT and which have\nboth a main-branch push and an ADMIT timestamp. Each included sample is seconds from that\ncandidate's earliest main push to its earliest ADMIT, rounded to the nearest integer.\nA historical ADMIT followed by a later REFUSE or SEND_BACK contributes no sample. Samples\nsort numerically and use nearest-rank p50: for an even count, the lower middle value; with\nno eligible samples the median is null.\n\n\nThe submitter's reason: Does the run median include historical ADMITs or only latest-ADMIT candidates? Answered in SPEC.md section 8. Open work / Ask: series-runs using the exact admitted implementation and its recorded ADMIT. Adds 7 lines; changes no admitted ask behavior.",
+          "refs": [
+            "ruling key: cand--amend-run-median--forge--codex--w1--bdcda700ce4d 72b49b8d06061cc1c2d3e19761f097a038ce0cdb",
+            "cites: ADMIT on series-runs at 2026-10-09T03:15:31.259Z",
+            "The run median includes only candidates whose latest verdict is ADMIT and which have",
+            "both a main-branch push and an ADMIT timestamp. Each included sample is seconds from that",
+            "candidate's earliest main push to its earliest ADMIT, rounded to the nearest integer.",
+            "A historical ADMIT followed by a later REFUSE or SEND_BACK contributes no sample. Samples",
+            "sort numerically and use nearest-rank p50: for an even count, the lower middle value; with",
+            "no eligible samples the median is null."
+          ]
+        },
+        "assumptions": {
+          "summary": "The added text states what the arena already does."
+        },
+        "alternatives": {
+          "summary": "Admit the amendment, or refuse the amendment.",
+          "options": [
+            {
+              "name": "admit",
+              "summary": "Admit the amendment. Spec merges the text, and every later run reads it."
+            },
+            {
+              "name": "refuse",
+              "summary": "Refuse the amendment. The question stays open for another amendment."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "The candidate waits without a ruling, and the spec stays unchanged."
+        },
+        "recommendation": {
+          "summary": "Admit the amendment. It only adds lines, and the replay measured its cited failure.",
+          "choice": "admit"
+        },
+        "blast_radius": {
+          "summary": "The spec text changes for every later candidate. No code changes.",
+          "level": "medium"
+        },
+        "cost_tradeoffs": {
+          "summary": "An admit fixes the text for every later run. A refusal leaves the question open."
+        },
+        "uncertainty": {
+          "summary": "Only a human read confirms that the text matches the arena's intent."
+        },
+        "reversibility": {
+          "summary": "An admitted amendment stays in the spec history. A correction needs a new publish.",
+          "reversal_cost": "medium"
+        },
+        "time_control": {
+          "summary": "No deadline applies. The candidate waits meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": {
+        "verdict": "ADMIT",
+        "objective": "series-runs",
+        "canonical": "api"
+      },
+      "expected": {
+        "cls": "yellow",
+        "choice": "refuse",
+        "why": "Reclassified YELLOW under GYR (Chris, 23:25 PDT), not red. Refused: the series-runs reference counts each candidate's first ADMIT whatever is ruled later; the text excludes them."
+      }
+    },
+    {
+      "id": 8,
+      "kind": "amendment",
+      "subject": "cand--amend-feed-other-refs--forge--codex--w1--1371d653ef7c",
+      "record": {
+        "decision_requested": {
+          "summary": "Admit the amendment amend-feed-other-refs to SPEC.md?"
+        },
+        "why_now": {
+          "summary": "Every check passed. The amendment changes the spec text that every later run reads.",
+          "red_criteria": [
+            "product_tradeoff"
+          ]
+        },
+        "evidence": {
+          "summary": "The amendment adds 7 lines and removes none. It cites ADMIT on series-feed at 2026-10-09T03:11:45.004Z. The replay result: cites a recorded ADMIT; nothing to replay.",
+          "detail": "In series-feed, a push not covered by a candidate main, submitter-notes, or admission-note\ncase uses the canonical main, tag, or notes wording when its ref matches those cases, even\nwhen its subject parses as a candidate. Otherwise its LINE is `<repo> <full-ref>: <message>`.\nAn absent, null, or empty ref uses `push` in place of `<full-ref>`; an absent or null message\nomits the colon and message. These other-ref pushes have ACTOR `authority` and remain feed\nitems; they are not discarded for lacking a table row.\n\n\nThe submitter's reason: What LINE does the feed use for push refs not enumerated in the table? Answered in SPEC.md section 2. Ingestion using the exact admitted implementation and its recorded ADMIT. Adds 7 lines; changes no admitted ask behavior.",
+          "refs": [
+            "ruling key: cand--amend-feed-other-refs--forge--codex--w1--1371d653ef7c 901191cafc1ee21be234f595fcf1e0f38eba09ca",
+            "cites: ADMIT on series-feed at 2026-10-09T03:11:45.004Z",
+            "In series-feed, a push not covered by a candidate main, submitter-notes, or admission-note",
+            "case uses the canonical main, tag, or notes wording when its ref matches those cases, even",
+            "when its subject parses as a candidate. Otherwise its LINE is `<repo> <full-ref>: <message>`.",
+            "An absent, null, or empty ref uses `push` in place of `<full-ref>`; an absent or null message",
+            "omits the colon and message. These other-ref pushes have ACTOR `authority` and remain feed",
+            "items; they are not discarded for lacking a table row."
+          ]
+        },
+        "assumptions": {
+          "summary": "The added text states what the arena already does."
+        },
+        "alternatives": {
+          "summary": "Admit the amendment, or refuse the amendment.",
+          "options": [
+            {
+              "name": "admit",
+              "summary": "Admit the amendment. Spec merges the text, and every later run reads it."
+            },
+            {
+              "name": "refuse",
+              "summary": "Refuse the amendment. The question stays open for another amendment."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "The candidate waits without a ruling, and the spec stays unchanged."
+        },
+        "recommendation": {
+          "summary": "Admit the amendment. It only adds lines, and the replay measured its cited failure.",
+          "choice": "admit"
+        },
+        "blast_radius": {
+          "summary": "The spec text changes for every later candidate. No code changes.",
+          "level": "medium"
+        },
+        "cost_tradeoffs": {
+          "summary": "An admit fixes the text for every later run. A refusal leaves the question open."
+        },
+        "uncertainty": {
+          "summary": "Only a human read confirms that the text matches the arena's intent."
+        },
+        "reversibility": {
+          "summary": "An admitted amendment stays in the spec history. A correction needs a new publish.",
+          "reversal_cost": "medium"
+        },
+        "time_control": {
+          "summary": "No deadline applies. The candidate waits meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": {
+        "verdict": "ADMIT",
+        "objective": "series-feed",
+        "canonical": "api"
+      },
+      "expected": {
+        "cls": "yellow",
+        "choice": "refuse",
+        "why": "Reclassified YELLOW under GYR (Chris, 23:25 PDT), not red. Refused: the series-feed reference writes 'pushed <ref> on <objective> slot <agent>' and '<repo> <ref>' with no message; the text differs."
+      }
+    },
+    {
+      "id": 9,
+      "kind": "amendment",
+      "subject": "cand--amend-product-read-access--forge--codex--w1--ad15b1aea137",
+      "record": {
+        "decision_requested": {
+          "summary": "Admit the amendment amend-product-read-access to SPEC.md?"
+        },
+        "why_now": {
+          "summary": "Every check passed. The amendment changes the spec text that every later run reads.",
+          "red_criteria": [
+            "product_tradeoff"
+          ]
+        },
+        "evidence": {
+          "summary": "The amendment adds 7 lines and removes none. It cites ADMIT on view-feed at 2026-10-09T03:12:27.358Z. The replay result: cites a recorded ADMIT; nothing to replay.",
+          "detail": "The submitter protocol supplies a control base URL and scoped candidate Git remotes;\nit does not supply a separate owner-facing product URL or an owner credential. The admitted\nsite loader uses relative `/obs/series/<ask>` and `/site/views/<ask>.js` paths on its serving\norigin. Admitted view modules render the supplied data and do not discover that origin or\nauthenticate a product request. A submitter verifies its module with the supplied checks\nand the recorded ADMIT, and verifies admission and deployment through `/api/asks`.\n\n\nThe submitter's reason: What external product address and authentication can a submitter use for direct verification? Answered in SPEC.md section 5. The api routes using the exact admitted implementation and its recorded ADMIT. Adds 7 lines; changes no admitted ask behavior.",
+          "refs": [
+            "ruling key: cand--amend-product-read-access--forge--codex--w1--ad15b1aea137 e8744cdece0aa978d95b17c642a999714bbb5e31",
+            "cites: ADMIT on view-feed at 2026-10-09T03:12:27.358Z",
+            "The submitter protocol supplies a control base URL and scoped candidate Git remotes;",
+            "it does not supply a separate owner-facing product URL or an owner credential. The admitted",
+            "site loader uses relative `/obs/series/<ask>` and `/site/views/<ask>.js` paths on its serving",
+            "origin. Admitted view modules render the supplied data and do not discover that origin or",
+            "authenticate a product request. A submitter verifies its module with the supplied checks",
+            "and the recorded ADMIT, and verifies admission and deployment through `/api/asks`."
+          ]
+        },
+        "assumptions": {
+          "summary": "The added text states what the arena already does."
+        },
+        "alternatives": {
+          "summary": "Admit the amendment, or refuse the amendment.",
+          "options": [
+            {
+              "name": "admit",
+              "summary": "Admit the amendment. Spec merges the text, and every later run reads it."
+            },
+            {
+              "name": "refuse",
+              "summary": "Refuse the amendment. The question stays open for another amendment."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "The candidate waits without a ruling, and the spec stays unchanged."
+        },
+        "recommendation": {
+          "summary": "Admit the amendment. It only adds lines, and the replay measured its cited failure.",
+          "choice": "admit"
+        },
+        "blast_radius": {
+          "summary": "The spec text changes for every later candidate. No code changes.",
+          "level": "medium"
+        },
+        "cost_tradeoffs": {
+          "summary": "An admit fixes the text for every later run. A refusal leaves the question open."
+        },
+        "uncertainty": {
+          "summary": "Only a human read confirms that the text matches the arena's intent."
+        },
+        "reversibility": {
+          "summary": "An admitted amendment stays in the spec history. A correction needs a new publish.",
+          "reversal_cost": "medium"
+        },
+        "time_control": {
+          "summary": "No deadline applies. The candidate waits meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": {
+        "verdict": "ADMIT",
+        "objective": "view-feed",
+        "canonical": "site"
+      },
+      "expected": {
+        "cls": "yellow",
+        "choice": "admit",
+        "why": "Reclassified YELLOW under GYR (Chris, 23:25 PDT), not red. Admitted: the product address stays unpublished; builders verify through checks and /api/asks. Yellow: it cites an ADMIT, so nothing was replayed."
+      }
+    },
+    {
+      "id": 10,
+      "kind": "amendment",
+      "subject": "cand--amend-viewport-policy--forge--codex--w1--7be75dcd538d",
+      "record": {
+        "decision_requested": {
+          "summary": "Admit the amendment amend-viewport-policy to SPEC.md?"
+        },
+        "why_now": {
+          "summary": "Every check passed. The amendment changes the spec text that every later run reads.",
+          "red_criteria": [
+            "product_tradeoff"
+          ]
+        },
+        "evidence": {
+          "summary": "The amendment adds 7 lines and removes none. It cites ADMIT on view-runs at 2026-10-09T03:13:42.846Z. The replay result: cites a recorded ADMIT; nothing to replay.",
+          "detail": "The admitted now, feed, and runs modules put their finding first and render in normal\ndocument flow. The now view renders all actor rows; the runs view renders all run cards in\na grid that wraps to the available width. These modules enforce no fixed viewport height\nor clipping limit, so a growing payload can require scrolling. The feed initially displays\n25 events and places any remaining supplied events in a closed native `details` disclosure.\nThere is no additional disclosure or truncation rule for the now or runs payloads.\n\n\nThe submitter's reason: What viewport, overflow, or disclosure policy implements without scrolling? Answered in SPEC.md section 6. The site views using the exact admitted implementation and its recorded ADMIT. Adds 7 lines; changes no admitted ask behavior.",
+          "refs": [
+            "ruling key: cand--amend-viewport-policy--forge--codex--w1--7be75dcd538d 410042b28818fa470b9e30b82dc4736cee930feb",
+            "cites: ADMIT on view-runs at 2026-10-09T03:13:42.846Z",
+            "The admitted now, feed, and runs modules put their finding first and render in normal",
+            "document flow. The now view renders all actor rows; the runs view renders all run cards in",
+            "a grid that wraps to the available width. These modules enforce no fixed viewport height",
+            "or clipping limit, so a growing payload can require scrolling. The feed initially displays",
+            "25 events and places any remaining supplied events in a closed native `details` disclosure.",
+            "There is no additional disclosure or truncation rule for the now or runs payloads."
+          ]
+        },
+        "assumptions": {
+          "summary": "The added text states what the arena already does."
+        },
+        "alternatives": {
+          "summary": "Admit the amendment, or refuse the amendment.",
+          "options": [
+            {
+              "name": "admit",
+              "summary": "Admit the amendment. Spec merges the text, and every later run reads it."
+            },
+            {
+              "name": "refuse",
+              "summary": "Refuse the amendment. The question stays open for another amendment."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "The candidate waits without a ruling, and the spec stays unchanged."
+        },
+        "recommendation": {
+          "summary": "Admit the amendment. It only adds lines, and the replay measured its cited failure.",
+          "choice": "admit"
+        },
+        "blast_radius": {
+          "summary": "The spec text changes for every later candidate. No code changes.",
+          "level": "medium"
+        },
+        "cost_tradeoffs": {
+          "summary": "An admit fixes the text for every later run. A refusal leaves the question open."
+        },
+        "uncertainty": {
+          "summary": "Only a human read confirms that the text matches the arena's intent."
+        },
+        "reversibility": {
+          "summary": "An admitted amendment stays in the spec history. A correction needs a new publish.",
+          "reversal_cost": "medium"
+        },
+        "time_control": {
+          "summary": "No deadline applies. The candidate waits meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": {
+        "verdict": "ADMIT",
+        "objective": "view-runs",
+        "canonical": "site"
+      },
+      "expected": {
+        "cls": "yellow",
+        "choice": "admit",
+        "why": "Reclassified YELLOW under GYR (Chris, 23:25 PDT), not red. Admitted: it describes the admitted views; no check measures the viewport. Yellow: it cites an ADMIT, so nothing was replayed."
+      }
+    },
+    {
+      "id": 11,
+      "kind": "amendment",
+      "subject": "cand--amend-authority-recheck--forge--codex--w1--8cdf193656ef",
+      "record": {
+        "decision_requested": {
+          "summary": "Admit the amendment amend-authority-recheck to CONTRACT.md?"
+        },
+        "why_now": {
+          "summary": "Every check passed. The amendment changes the spec text that every later run reads.",
+          "red_criteria": [
+            "product_tradeoff"
+          ]
+        },
+        "evidence": {
+          "summary": "The amendment adds 8 lines and removes none. It cites ADMIT on series-now at 2026-10-09T03:19:08.913Z. The replay result: cites a recorded ADMIT; nothing to replay.",
+          "detail": "A ruling describes the checks at its `ruled_at`; it is not an immutable verdict about\nevery future authority version. An authority repair to its reference or input generator can\nbe followed by an ADMIT of an existing candidate tip, without a candidate-code change.\nThe recorded series-now ADMIT of `adff4bdeccf07f14ebfb3357d274ceb3fca6e566` is such a tip.\nEarlier rulings remain historical records, but do not by themselves establish a current\nreproducible failure. Amendments citing a SEND_BACK must meet the current replay check;\nan ADMIT citation is the recorded measurement and is not replayed.\n\n\nThe submitter's reason: Can an unchanged tip be admitted after an authority repair, and what do old failures prove? Answered in CONTRACT.md section Admission using the exact admitted implementation and its recorded ADMIT. Adds 8 lines; changes no admitted ask behavior.",
+          "refs": [
+            "ruling key: cand--amend-authority-recheck--forge--codex--w1--8cdf193656ef cd8f35122cbb7cca6228920e7f64c3920d4ac7b1",
+            "cites: ADMIT on series-now at 2026-10-09T03:19:08.913Z",
+            "A ruling describes the checks at its `ruled_at`; it is not an immutable verdict about",
+            "every future authority version. An authority repair to its reference or input generator can",
+            "be followed by an ADMIT of an existing candidate tip, without a candidate-code change.",
+            "The recorded series-now ADMIT of `adff4bdeccf07f14ebfb3357d274ceb3fca6e566` is such a tip.",
+            "Earlier rulings remain historical records, but do not by themselves establish a current",
+            "reproducible failure. Amendments citing a SEND_BACK must meet the current replay check;",
+            "an ADMIT citation is the recorded measurement and is not replayed."
+          ]
+        },
+        "assumptions": {
+          "summary": "The added text states what the arena already does."
+        },
+        "alternatives": {
+          "summary": "Admit the amendment, or refuse the amendment.",
+          "options": [
+            {
+              "name": "admit",
+              "summary": "Admit the amendment. Spec merges the text, and every later run reads it."
+            },
+            {
+              "name": "refuse",
+              "summary": "Refuse the amendment. The question stays open for another amendment."
+            }
+          ]
+        },
+        "no_action_baseline": {
+          "summary": "The candidate waits without a ruling, and the spec stays unchanged."
+        },
+        "recommendation": {
+          "summary": "Admit the amendment. It only adds lines, and the replay measured its cited failure.",
+          "choice": "admit"
+        },
+        "blast_radius": {
+          "summary": "The spec text changes for every later candidate. No code changes.",
+          "level": "medium"
+        },
+        "cost_tradeoffs": {
+          "summary": "An admit fixes the text for every later run. A refusal leaves the question open."
+        },
+        "uncertainty": {
+          "summary": "Only a human read confirms that the text matches the arena's intent."
+        },
+        "reversibility": {
+          "summary": "An admitted amendment stays in the spec history. A correction needs a new publish.",
+          "reversal_cost": "medium"
+        },
+        "time_control": {
+          "summary": "No deadline applies. The candidate waits meanwhile.",
+          "urgency": "low",
+          "deferral_safe": true,
+          "controls": [
+            "approve",
+            "choose_alternative",
+            "request_evidence",
+            "challenge_assumption",
+            "request_options",
+            "modify_redirect",
+            "defer",
+            "reject",
+            "stop"
+          ]
+        }
+      },
+      "cited": {
+        "verdict": "ADMIT",
+        "objective": "series-now",
+        "canonical": "api"
+      },
+      "expected": {
+        "cls": "yellow",
+        "choice": "admit",
+        "why": "Reclassified YELLOW under GYR (Chris, 23:25 PDT), not red. Admitted: it states the re-rule after an authority repair, as on 2026-10-08. Yellow: it cites an ADMIT, so nothing was replayed."
+      }
+    }
+  ]
+}

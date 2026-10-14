@@ -1,0 +1,11 @@
+{
+  // Reserved path (CONTRACT.md). Only the admission authority changes deployment config.
+  // The authority deploys this Worker from the api canonical after every api ADMIT.
+  "name": "agent-collab-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-05",
+  "workers_dev": false,
+  "preview_urls": false,
+  "services": [{ "binding": "CONTROL", "service": "agent-collab-control" }],
+  "observability": { "enabled": true }
+}

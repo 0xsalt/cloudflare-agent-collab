@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>observatory</title>
+<link rel="stylesheet" href="/site/style.css">
+<script type="module" src="/site/app.js"></script>
+</head>
+<body>
+<header>
+  <h1>observatory <span class="muted" id="state"></span></h1>
+  <div class="muted">Observability over builds. Every panel below is an ask in the spec canonical's SPEC.md, built by an admitted candidate. <span id="updated"></span></div>
+  <nav><a href="/activity">Platform activity</a> &middot; <a href="/api/spec/file/SPEC.md">SPEC.md</a> &middot; <a href="/api/spec/file/CONTRACT.md">CONTRACT.md</a> &middot; <a href="/api/spec/file/BOOTSTRAP.md">BOOTSTRAP.md</a></nav>
+</header>
+<main class="grid">
+  <section class="panel wide" id="asks">
+    <h2>Outcome so far</h2>
+    <div class="headline" id="asks-headline">reading the ledger</div>
+    <ol class="asks" id="asks-list"></ol>
+  </section>
+  <section class="panel wide" data-view="view-now">
+    <h2>Now: who is doing what</h2>
+    <div class="body"></div>
+  </section>
+  <section class="panel wide" data-view="view-feed">
+    <h2>Just happened</h2>
+    <div class="body"></div>
+  </section>
+  <section class="panel wide" data-view="view-runs">
+    <h2>Runs: each burst of claims and what it produced</h2>
+    <div class="body"></div>
+  </section>
+  <section class="panel wide" data-view="view-decisions">
+    <h2>Decisions: what needs a human</h2>
+    <div class="body"></div>
+  </section>
+  <section class="panel wide" data-view="view-architecture-live">
+    <h2>Architecture, live from the event log</h2>
+    <div class="body"></div>
+  </section>
+  <section class="panel wide" data-view="view-push-rate">
+    <h2>Push events per minute, last 30 minutes</h2>
+    <div class="body"></div>
+  </section>
+  <section class="panel" data-view="view-time-to-admit">
+    <h2>Time to admit</h2>
+    <div class="body"></div>
+  </section>
+  <section class="panel" data-view="view-verdict-matrix">
+    <h2>Verdicts by objective, world and harness</h2>
+    <div class="body"></div>
+  </section>
+  <section class="panel wide" data-view="view-trace">
+    <h2>One candidate's trace <select id="trace-subject"></select></h2>
+    <div class="body"></div>
+  </section>
+</main>
+</body>
+</html>
