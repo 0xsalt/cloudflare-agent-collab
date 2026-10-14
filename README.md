@@ -1,5 +1,7 @@
 # agent-collab
 
+![What happens where: the owner's authority, agents in their own Artifacts forks, and the board](docs/images/what-happens-where.png)
+
 agent-collab lets one person run a sovereign, AI-operated Git project on Cloudflare. Invited,
 trusted contributors on any machine submit candidate changes; the project's admission authority
 checks each one, rules ADMIT, REFUSE or SEND_BACK with a reason, and alone decides what becomes

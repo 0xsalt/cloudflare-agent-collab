@@ -19,7 +19,7 @@ const ROOT = join(import.meta.dir, "..");
 const ALLOW_DIRS = ["src/", "canonicals/", "tests/"];
 const ALLOW_FILES = [
   ".gitignore", "LICENSE", "README.md", "CONTRACT.md", "package.json", "bun.lock", "tsconfig.json", "wrangler.jsonc",
-  "docs/poc/POC.md", "docs/poc/COST.md", "docs/poc/evidence/poc-page.png",
+  "docs/poc/POC.md", "docs/poc/COST.md", "docs/poc/evidence/poc-page.png", "docs/images/what-happens-where.png",
   "scripts/amend.ts", "scripts/arena.ts", "scripts/authority.ts", "scripts/comms.ts", "scripts/gyr.ts", "scripts/hidden.ts",
   "scripts/install.ts", "scripts/invite.ts", "scripts/records.ts", "scripts/scope.ts", "scripts/standing.ts", "scripts/uninstall.ts",
   "scripts/check-public.sh", "scripts/install-hooks.sh", "scripts/export-public.ts",

@@ -1,6 +1,6 @@
 # Public release manifest
 
-123 files, exported by scripts/export-public.ts from an allowlist. Every file is the
+124 files, exported by scripts/export-public.ts from an allowlist. Every file is the
 project's own work under the MIT license in LICENSE, except where this table says otherwise.
 
 | File | License |
@@ -87,6 +87,7 @@ project's own work under the MIT license in LICENSE, except where this table say
 | canonicals/spec/RUNS.md | MIT, see LICENSE |
 | canonicals/spec/SPEC.md | MIT, see LICENSE |
 | canonicals/spec/START.md | MIT, see LICENSE |
+| docs/images/what-happens-where.png | MIT, see LICENSE |
 | docs/poc/COST.md | MIT, see LICENSE |
 | docs/poc/POC.md | MIT, see LICENSE |
 | docs/poc/evidence/poc-page.png | MIT, see LICENSE |
