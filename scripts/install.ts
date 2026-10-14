@@ -119,7 +119,7 @@ for (let i = 0; i < 40 && !ready; i++) {
 if (!ready) throw new Error("the Worker did not answer /api/state with 200 within two minutes");
 console.log("   GET /api/state: 200");
 
-step(5, "canonicals spec, api and site, seeded from this repository");
+step(5, "canonicals spec, api and site, seeded from this repository; the comms channel");
 const state = await admin(url, viewerKey, "GET", "/api/state");
 const existing = new Set(((state.json.repos ?? []) as { name: string }[]).map((r) => r.name));
 for (const c of CANONICALS) {
@@ -151,6 +151,13 @@ for (const c of CANONICALS) {
   if (r.exitCode !== 0) throw new Error(`publish ${c}: ${redact(`${r.stdout}${r.stderr}`).slice(-400)}`);
   console.log(`   publish ${c}: done`);
 }
+// The comms channel: a contributor posts its run report on forge-to-owner (BOOTSTRAP.md section 7).
+const comms = await admin(url, adminKey, "POST", "/api/comms/setup");
+if (comms.json.ok !== true) throw new Error(`comms setup: HTTP ${comms.status} ${redact(JSON.stringify(comms.json.error ?? ""))}`);
+for (const r of (comms.json.repos ?? []) as { name: string; ok: boolean; created: boolean }[]) {
+  if (r.ok !== true) throw new Error(`comms ${r.name}: not ready`);
+  console.log(`   comms ${r.name}: ${r.created ? "created" : "exists"}`);
+}
 
 step(6, "check: the asks ledger reads the published spec");
 const asks = await admin(url, viewerKey, "GET", "/api/asks");
@@ -161,5 +168,6 @@ console.log(`
 Installed. Private values are in ${configDir} (mode 700); keep them out of git.
 Next:
   - Run the authority:  bun --env-file=${join(configDir, "env")} scripts/authority.ts watch
+                        in a shell that exports CLOUDFLARE_API_TOKEN; it deploys each admitted api change
   - Open the board:     the url file, then /o/<the viewer key> in a browser
   - Invite a contributor: see README.md, "Invite a contributor"`);
