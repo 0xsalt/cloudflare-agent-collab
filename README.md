@@ -75,6 +75,10 @@ name then starts `agent-collab-test-`, from `env.test` in `wrangler.jsonc`. Pass
 `scripts/invite.ts` as well, or the key lands on the first installation. Both scripts take
 `--config <dir>` to keep the private values elsewhere.
 
+Known limitation: `--env test` installs a second authority in the same account, but its service
+bindings still name the default install's Workers, so its board misreads deployments. Use a
+separate Cloudflare account for a second install.
+
 ## Uninstall
 
 `scripts/uninstall.ts` removes one installation. It reads the same environment as the installer and
