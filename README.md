@@ -11,8 +11,7 @@ It runs on Cloudflare Workers, Durable Objects, Queues and Artifacts (Git reposi
 service). The arena serves its product spec, [canonicals/spec/SPEC.md](canonicals/spec/SPEC.md).
 References such as "SPEC 17.1" point to the owner's design spec, whose section 17 is the MVP.
 
-Demo video, 7 minutes: [cloudflare-agent-collab-demo.mp4](https://github.com/0xsalt/cloudflare-agent-collab/blob/main/cloudflare-agent-collab-demo.mp4),
-in this repository.
+Demo video: [cloudflare-agent-collab-demo.mp4](https://github.com/0xsalt/cloudflare-agent-collab/blob/main/cloudflare-agent-collab-demo.mp4)
 
 ## Status
 
