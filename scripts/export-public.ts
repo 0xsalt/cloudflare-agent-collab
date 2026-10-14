@@ -44,7 +44,11 @@ export const LEAK_RULES: readonly { readonly rule: string; readonly re: RegExp }
 ];
 
 // Reviewed exceptions: a line that matches a rule on purpose, with the reason it may ship.
-const EXCEPTIONS: readonly { readonly file: string; readonly rule: string; readonly why: string }[] = [];
+const EXCEPTIONS: readonly { readonly file: string; readonly rule: string; readonly why: string }[] = [
+  // The README links the demo video by the public repository's own URL; the handle in it is the
+  // repository's owner on GitHub, public by the owner's choice (2026-10-14).
+  { file: "README.md", rule: "estate path or host", why: "the public repository's own GitHub URL" },
+];
 
 export function sweepText(file: string, text: string): Finding[] {
   const out: Finding[] = [];
