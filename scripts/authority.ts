@@ -276,9 +276,10 @@ const keyOf = (d: DecisionView): string | undefined => d.record.evidence.refs?.f
 
 // ISSUE-00029: every proposed red passes the GYR gate (scripts/gyr.ts). Red opens for the human
 // with the classifier's verdict in its evidence. Green or yellow posts a routed row and returns the
-// classification, and the caller carries out its choice with agent authority. GYR_GATE=off in the
-// watch's environment restores the red-by-default gate, and so does a host with no inference tool.
-const GYR_GATE: "on" | "off" = process.env.GYR_GATE === "off" || inferenceTool() === null ? "off" : "on";
+// classification, and the caller carries out its choice with agent authority. The gate is opt-in:
+// it runs only with GYR_GATE=on and an inference tool. Otherwise every proposed red waits for the
+// human. The owner ruled it off on 2026-10-13 ("It's not ready"), so no host turns it on by itself.
+const GYR_GATE: "on" | "off" = process.env.GYR_GATE === "on" && inferenceTool() !== null ? "on" : "off";
 async function proposeRed(p: Proposal): Promise<Classification> {
   const c: Classification = GYR_GATE === "off"
     ? { cls: "red", reason: "the GYR gate is off", criteria: p.record.why_now.red_criteria ?? [], choice: "", by: "rule" }

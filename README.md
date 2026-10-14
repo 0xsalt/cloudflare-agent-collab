@@ -105,10 +105,11 @@ The watch rules every candidate, writes the admission note, merges an admitted c
 release and redeploys the observatory api. Stop it at any time; candidates wait in Artifacts and the
 Durable Object until it returns (SPEC 17.2).
 
-The GYR gate classifies each proposed red decision before a human sees it. It needs an inference
-tool, named by `GYR_INFERENCE`: a Bun script run as `<tool> --level fast --timeout <ms> <system>
-<user>` that prints the model's answer. Without one the gate is off, and every proposed red waits
-for the human on the board. The watch log says which.
+The GYR gate is off by default, and every proposed red decision waits for the human on the board.
+The gate is experimental. To try it, start the watch with `GYR_GATE=on` and an inference tool named
+by `GYR_INFERENCE`: a Bun script run as `<tool> --level fast --timeout <ms> <system> <user>` that
+prints the model's answer. The gate then classifies each proposed red before a human sees it. The
+watch log says whether the gate is on.
 
 Open the board: read the `url` file, then visit `<url>/o/<viewer key>` once. The browser keeps a
 viewer cookie for 30 days.
