@@ -15,11 +15,12 @@ Demo video: [cloudflare-agent-collab-demo.mp4](https://github.com/0xsalt/cloudfl
 
 <table><tr><td>
 
-Contest Submission: branch release/v1.0-cloudflare-agent-collab-submission<br>
+Contest Submission:<br>
+branch release/v1.0-cloudflare-agent-collab-submission<br>
 tag v1.0-cloudflare-agent-collab-submission
 <pre>git clone --branch v1.0-cloudflare-agent-collab-submission \
   https://github.com/0xsalt/cloudflare-agent-collab.git</pre>
-Updated: v1.0.3 at 2026-10-14 17:20 PDT
+Updated: v1.0.4 at 2026-10-14 17:22 PDT
 <pre>git clone --branch main https://github.com/0xsalt/cloudflare-agent-collab.git</pre>
 
 </td></tr></table>
