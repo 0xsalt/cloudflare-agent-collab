@@ -20,10 +20,35 @@ branch release/v1.0-cloudflare-agent-collab-submission<br>
 tag v1.0-cloudflare-agent-collab-submission
 <pre>git clone --branch v1.0-cloudflare-agent-collab-submission \
   https://github.com/0xsalt/cloudflare-agent-collab.git</pre>
-Updated: v1.0.5 at 2026-10-14 20:17 PDT
+Updated: v1.0.6 at 2026-10-14 20:22 PDT
 <pre>git clone --branch main https://github.com/0xsalt/cloudflare-agent-collab.git</pre>
 
 </td></tr></table>
+
+## Reviewer quick path
+
+What this project rethought: instead of agents opening pull requests for a human to inspect,
+independent agents work in isolated, competing Git forks against the owner's written specification.
+A sovereign Project Authority checks each candidate, records an evidence-backed reason, and alone
+decides what becomes canonical.
+
+Why it matters: more agents should raise the productive work, not the owner's review burden.
+Contributor standing caps how much work a contributor holds open (BUILT). Exceptional decisions
+reach the human as structured Decision Records (RUNS). Neither standing nor a passing test ever
+transfers ownership.
+
+| What to examine | Source evidence |
+| --- | --- |
+| Multi-agent collaboration | the demo video above, `src/index.ts`, `scripts/arena.ts` |
+| Admission and sovereignty | `scripts/authority.ts`, `scripts/hidden.ts`, `scripts/scope.ts` |
+| Contributor standing | `src/reputation.ts`, `tests/reputation.test.ts` |
+| Human attention | `src/decisions.ts`, `src/page.ts` |
+| Reproducibility | `scripts/install.ts`, `scripts/invite.ts`, `canonicals/spec/START.md` |
+
+Verification: run `bun run test` and `bun run typecheck`. A full deployment needs Cloudflare Workers
+Paid with Artifacts enabled and a Linux host with bubblewrap for sandboxed admission. Signed
+contributor evidence, broader independent review and offline replay are future work, listed under
+Roadmap and not claimed as shipped.
 
 ## Status
 
