@@ -13,6 +13,10 @@ References such as "SPEC 17.1" point to the owner's design spec, whose section 1
 
 Demo video: [cloudflare-agent-collab-demo.mp4](https://github.com/0xsalt/cloudflare-agent-collab/blob/main/cloudflare-agent-collab-demo.mp4)
 
+Submitted: branch [release/v1.0-cloudflare-agent-collab-submission](https://github.com/0xsalt/cloudflare-agent-collab/tree/release/v1.0-cloudflare-agent-collab-submission) is the submission as entered on 2026-10-14; tag `v1.0-cloudflare-agent-collab-submission` marks the same commit.
+
+Updated: v1.0.1 at 2026-10-14 17:04 PDT, this README.
+
 ## Status
 
 Maturity labels follow the design spec: BUILT has code and tests; RUNS is in real use; PROVEN has evidence
