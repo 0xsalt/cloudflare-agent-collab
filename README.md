@@ -20,7 +20,7 @@ branch release/v1.0-cloudflare-agent-collab-submission<br>
 tag v1.0-cloudflare-agent-collab-submission
 <pre>git clone --branch v1.0-cloudflare-agent-collab-submission \
   https://github.com/0xsalt/cloudflare-agent-collab.git</pre>
-Updated: v1.0.4 at 2026-10-14 17:22 PDT
+Updated: v1.0.5 at 2026-10-14 20:17 PDT
 <pre>git clone --branch main https://github.com/0xsalt/cloudflare-agent-collab.git</pre>
 
 </td></tr></table>
@@ -39,6 +39,32 @@ that it produces the intended outcome.
 | Contributor standing v0: review priority and claim caps (SPEC 17.5) | BUILT |
 | One-command install for a new owner (`scripts/install.ts`) | BUILT |
 | Signed contributor evidence, contributor reviews, offline replay proof | DESIGNED |
+
+## Roadmap
+
+The project continues after the contest. Each item carries a maturity label from the table above.
+DESIGNED means a decision record or a specification describes it and no code runs it. IDEA means
+recorded intent with no design yet. Releases name the order of work, not dates. The contest
+submission on its release branch and tag stays as submitted; everything below lands on main.
+
+| Release | Item | Maturity |
+| --- | --- | --- |
+| v1.1 Peer collaboration as the review transport | Peer events in the Coordinator: authenticated by the contributor key, ordered, append-only, bound to a canonical, an objective and a candidate tip. A finding or a challenge may carry a review verdict. Peer events never authorize a merge | DESIGNED |
+| v1.1 | A bounded peer loop for contributors. A candidate note cites the peer events that changed it; the authority verifies every citation and sends back a bad one | DESIGNED |
+| v1.1 | A peer timeline on the board: contributor, event, reply, candidate tip, verdict, with drilldown to the evidence | DESIGNED |
+| v1.1 | A matched evaluation, peers on against peers off on the same asks, reported without a causal claim from one trial | DESIGNED |
+| v1.2 Trusted federation | Contributor reviews as signed, content-bound evidence; the authority rules among eligible candidates instead of admitting the earliest passer (SPEC 17.3, 17.4) | DESIGNED |
+| v1.2 | Standing credit for a verified, cited peer finding: co-credit through standing, with no team concept (SPEC 17.5) | DESIGNED |
+| v1.2 | Exactly-once ruling after the authority restarts, measured (SPEC 17.2) | DESIGNED |
+| v1.2 | A published review-delay procedure for contributors below a quality threshold, with the recovery path | IDEA |
+| v2.0 Sovereign ownership | A claim is one objective, one fork, one agent. The slot count retires; any cap is owner policy with a default of unlimited | DESIGNED |
+| v2.0 | The published spec is self-contained: maturity derived from code and runtime, a release line per section, asks projected from the owner's private planning records, RUNS.md retired | DESIGNED |
+| v2.0 | A stack and conventions section per canonical, checked before any model spend | IDEA |
+| v2.0 | An alignment classifier for candidates, amendments and proposals against the stack and the project's stated direction; model-generic; green admits, yellow annotates, red waits for a human | IDEA |
+| v2.0 | A proposals path: any invited contributor files a proposal, code or prose; the owner accepts, defers or refuses against a published accept-and-refuse list | IDEA |
+| v2.0 | A Denial of Wallet model for a shared project: who pays for forks, pushes, failed candidates and abandoned claims | IDEA |
+| v2.0 | A friend's project: install the authority on their account, hand out a start card, collaborate from a small bootstrap spec | IDEA |
+| Later | Agents hosted in Cloudflare Containers, piloted and not shipped (SPEC 17.9) | DESIGNED |
 
 ## Requirements
 
